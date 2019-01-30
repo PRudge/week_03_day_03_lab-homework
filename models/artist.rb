@@ -43,4 +43,15 @@ class Artist
     SqlHelper.run(sql)
   end
 
+  def Artist.find(id)
+    sql = "SELECT * FROM artists WHERE id = $1"
+    values = [id]
+    result = SqlHelper.run(sql, values)
+    if result.ntuples > 0
+      artist_hash = result.first
+      return Artist.new(artist_hash)
+    end
+    return nil
+  end
+
 end

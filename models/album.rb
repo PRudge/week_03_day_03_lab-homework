@@ -45,4 +45,15 @@ class Album
     SqlHelper.run(sql)
   end
 
+  def Album.find(id)
+    sql = "SELECT * FROM albums WHERE id = $1"
+    values = [id]
+    result = SqlHelper.run(sql, values)
+    if result.ntuples > 0
+      album_hash = result.first
+      return Album.new(album_hash)
+    end
+    return nil
+  end
+
 end

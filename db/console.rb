@@ -50,5 +50,9 @@ album_3.update()
 artist_1.name = "Freddie Mercury"
 artist_1.update()
 
+
+album_find = Album.find(12)
+artist_find = Artist.find(41)
+
 binding.pry
 nil
