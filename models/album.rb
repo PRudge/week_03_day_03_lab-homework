@@ -40,4 +40,9 @@ class Album
     return result.map { |album| Album.new(album) }
   end
 
+  def Album.delete_all()
+    sql = "DELETE FROM albums"
+    SqlHelper.run(sql)
+  end
+
 end

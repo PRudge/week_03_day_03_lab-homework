@@ -38,4 +38,9 @@ class Artist
     return artists.map { |artist| Artist.new(artist) }
   end
 
+  def Artist.delete_all()
+    sql = "DELETE FROM artists"
+    SqlHelper.run(sql)
+  end
+
 end
