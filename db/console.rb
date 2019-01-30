@@ -17,6 +17,12 @@ artist_2 = Artist.new({
 
 artist_2.save()
 
+artist_3 = Artist.new({
+  'name' => 'Genesis'
+})
+
+artist_3.save()
+
 album_1 = Album.new({
   'title' => 'Innuendo',
   'genre' => 'rock',
@@ -41,6 +47,14 @@ album_3 = Album.new({
 
 album_3.save()
 
+album_4 = Album.new({
+  'title' => 'Parachutes',
+  'genre' => 'classical',
+  'artist_id' => artist_2.id
+  })
+
+album_4.save()
+
 artists = Artist.read_all()
 albums = Album.read_all()
 artist_1_albums = artist_1.get_albums()
@@ -53,6 +67,10 @@ artist_1.update()
 
 album_find = Album.find(12)
 artist_find = Artist.find(41)
+
+album_3.delete()
+artist_3.delete()
+
 
 binding.pry
 nil

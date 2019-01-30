@@ -34,6 +34,12 @@ class Album
     SqlHelper.run(sql, values)
   end
 
+  def delete()
+    sql = "DELETE FROM albums where id = $1"
+    values = [@id]
+    SqlHelper.run(sql, values)
+  end
+
   def Album.read_all()
     sql = "SELECT * FROM albums"
     result = SqlHelper.run(sql)

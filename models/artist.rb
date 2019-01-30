@@ -32,6 +32,12 @@ class Artist
     SqlHelper.run(sql, values)
   end
 
+  def delete()
+    sql = "DELETE FROM artists where id = $1"
+    values = [@id]
+    SqlHelper.run(sql, values)
+  end
+
   def Artist.read_all()
     sql = "SELECT * FROM artists"
     artists = SqlHelper.run(sql)
